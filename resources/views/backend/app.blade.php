@@ -60,5 +60,7 @@
 <script src="{{ url('backend/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
 <!-- Kaiadmin JS -->
 <script src="{{ url('backend/assets/js/kaiadmin.min.js')}}"></script>
+
+@yield('script')
 </body>
 </html>
