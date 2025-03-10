@@ -40,6 +40,12 @@
                   <p>Data user</p>
                 </a>
               </li>
+              <li class="nav-item {{ Request::is('student*') ? 'active' : '' }} ">
+                <a href="{{ route('student')}}">
+                  <i class="fas fa-users"></i>
+                  <p>Data Siswa</p>
+                </a>
+              </li>
               <li class="nav-item">
               <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i>
