@@ -52,6 +52,11 @@ class StudentController extends Controller
 
         return redirect()->route('student')->with('success', 'Data siswa berhasil ditambahkan.');
     }
+    public function show($id)    
+    {
+        $student = DB::table('students')->where('id', $id)->first();
+        return view('student.show', compact('student'));
+    }
 
     public function edit($id)
     {

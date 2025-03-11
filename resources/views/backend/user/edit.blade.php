@@ -1,14 +1,14 @@
 @extends('backend.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="min-height: 100vh; overflow-y: auto;">
     <div class="page-inner">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="card-title">Edit User</div>
                 <a href="{{ route('user') }}" class="btn btn-info btn-sm">Kembali</a>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="min-height: 100vh; overflow-y: auto;">
                 <form action="{{ route('user.update', $user->id) }}" method="POST">
                     @csrf
                     @method('PUT')

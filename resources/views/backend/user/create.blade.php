@@ -1,6 +1,6 @@
 @extends('backend.app')
 @section('content')
-<div class="container">
+<div class="container" style="min-height: 100vh; overflow-y: auto;">
     <div class="page-inner">
         <div class="row">
             <div class="col-md-12">
@@ -9,7 +9,7 @@
                         <div class="card-title">Tambah User</div>
                         <a href="{{ route('user') }}" class="btn btn-info btn-sm">Kembali</a>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"style="min-height: 70vh; overflow-y: auto;">
                         <form action="{{ route('user.store') }}" method="POST">
                             @csrf
                             <div class="form-group row">
