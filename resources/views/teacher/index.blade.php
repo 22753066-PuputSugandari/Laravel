@@ -82,6 +82,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                <!-- Tambahkan link pagination -->
+                {{ $teachers->links() }}
             </div>
         </div>
     </div>

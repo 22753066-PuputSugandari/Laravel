@@ -10,7 +10,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = DB::table('techer')->get(); // Ambil semua data guru
+        $teachers = DB::table('techer')->paginate(5);
         return view('teacher.index', compact('teachers')); // Kirim ke view
     }
 

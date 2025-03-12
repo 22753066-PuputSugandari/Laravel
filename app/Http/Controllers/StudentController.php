@@ -9,7 +9,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = DB::table('students')->get();
+        $students = DB::table('students')->paginate(5);
         return view('student.index', compact('students'));
     }
 
