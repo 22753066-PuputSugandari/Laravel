@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,7 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
      //search
      Route::get('/search', [SearchController::class, 'search'])->name('search');
-    // User Routes
+    // mapel Routes
     Route::get('/user', [UserController::class, 'index'])->name('user');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
@@ -42,6 +43,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
     Route::delete('/teacher/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
 
+    // mapel
+    Route::get('/mapel', [MapelController::class, 'index'])->name('mapel');
+    Route::get('/mapel/create', [MapelController::class, 'create'])->name('mapel.create');
+    Route::post('/mapel', [MapelController::class, 'store'])->name('mapel.store');
+    Route::get('/mapel/{id}/edit', [MapelController::class, 'edit'])->name('mapel.edit');
+    Route::put('/mapel/{id}', [MapelController::class, 'update'])->name('mapel.update');
+    Route::delete('/mapel/{id}', [MapelController::class, 'delete'])->name('mapel.delete');
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

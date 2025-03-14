@@ -42,14 +42,20 @@
               </li>
               <li class="nav-item {{ Request::is('student*') ? 'active' : '' }} ">
                 <a href="{{ route('student')}}">
-                  <i class="fas fa-users"></i>
+                  <i class="fas fa-user-graduate"></i>
                   <p>Data Siswa</p>
                 </a>
               </li>
               <li class="nav-item {{ Request::is('teacher*') ? 'active' : '' }} ">
                 <a href="{{ route('techer')}}">
-                  <i class="fas fa-users"></i>
+                  <i class="fas fa-chalkboard-teacher"></i>
                   <p>Data Guru</p>
+                </a>
+              </li>
+              <li class="nav-item {{ Request::is('mapels*') ? 'active' : '' }} ">
+                <a href="{{ route('mapel')}}">
+                  <i class="fas fa-book"></i>
+                  <p>Mata Pelajaran</p>
                 </a>
               </li>
               <li class="nav-item">

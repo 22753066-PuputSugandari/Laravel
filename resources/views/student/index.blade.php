@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container">
     <div class="page-inner">
         <div class="page-header" style="margin-bottom: 10px;">
             <h3 class="fw-bold mb-3">Student List</h3>
@@ -17,8 +17,6 @@
             </ul>
         </div>
     </div>
-</div>
-
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
@@ -30,7 +28,7 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive" style="overflow-y: auto; height: calc(100vh - 250px);">
+            <div class="table-responsive">
                 <table class="table table-striped table-hover" style="font-size: 12px; min-width: 1200px;">
                     <thead class="table-primary text-center">
                         <tr>

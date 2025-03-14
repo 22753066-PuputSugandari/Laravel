@@ -1,7 +1,7 @@
 @extends('backend.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="page-inner">
         <div class="page-header mb-3">
             <h3 class="fw-bold">Teacher List</h3>
@@ -16,7 +16,6 @@
             </ul>
         </div>
     </div>
-</div>
 
 <div class="col-md-12">
     <div class="card">
@@ -27,7 +26,7 @@
             </a>
         </div>
         <div class="card-body">
-            <div class="table-responsive" style="max-height: 60vh; overflow-y: auto;">
+            <div class="table-responsive">
                 <table class="table table-striped table-hover" style="font-size: 12px; min-width: 1200px;">
                     <thead class="table-primary text-center">
                         <tr>

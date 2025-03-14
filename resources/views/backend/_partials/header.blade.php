@@ -1,5 +1,4 @@
-<div class="main-panel">
-        <div class="main-header">
+<div class="main-header">
           <div class="main-header-logo">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
@@ -37,7 +36,7 @@
                             <i class="fa fa-search search-icon"></i>
                         </button>
                     </div>
-                    <input type="text" name="query" placeholder="Search ..." class="form-control" required />
+                    <input type="Search" name="query" placeholder="Search ..." class="form-control" required />
                 </div>
             </form>
 
@@ -97,7 +96,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/jm_denis.jpg"
+                                src="../backend/assets/img/jm_denis.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -110,7 +109,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/chadengle.jpg"
+                                src="../backend/assets/img/profile.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -123,7 +122,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/mlane.jpg"
+                                src="../backend//assets/img/mlane.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -138,7 +137,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/talha.jpg"
+                                src="../backend/assets/img/talha.jpg"
                                 alt="Img Profile"
                               />
                             </div>
@@ -324,7 +323,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="../assets/img/profile.jpg"
+                        src="../backend/assets/img/put3.png"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -340,7 +339,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="../assets/img/profile.jpg"
+                              src="../backend/assets/img/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -373,3 +372,4 @@
             </div>
           </nav>
           <!-- End Navbar -->
+        </div>

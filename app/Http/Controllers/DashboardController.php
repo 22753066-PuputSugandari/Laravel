@@ -13,7 +13,8 @@ class DashboardController extends Controller
         $users = DB::table('users')->paginate(2);
         $students = DB::table('students')->paginate(5);
         $teachers = DB::table('techer')->paginate(5);
+        $mapels= DB::table('mapel')->paginate(2);
 
-        return view('backend.dashboard.index', compact('users', 'students', 'teachers'));
+        return view('backend.dashboard.index', compact('users', 'students', 'teachers', 'mapels'));
     }
 }

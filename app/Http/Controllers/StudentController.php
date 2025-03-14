@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\StoreStudentRequest;
 
 class StudentController extends Controller
 {
@@ -18,19 +19,8 @@ class StudentController extends Controller
         return view('student.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email',
-            'phone' => 'required|numeric',
-            'class' => 'required|integer',
-            'address' => 'required|string',
-            'gender' => 'required|string',
-            'status' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
         // Cek apakah ada gambar yang diunggah
         $imageName = 'default.jpg';
         if ($request->hasFile('image')) {
