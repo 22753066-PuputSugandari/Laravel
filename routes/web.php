@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SearchController;
@@ -50,6 +51,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mapel/{id}/edit', [MapelController::class, 'edit'])->name('mapel.edit');
     Route::put('/mapel/{id}', [MapelController::class, 'update'])->name('mapel.update');
     Route::delete('/mapel/{id}', [MapelController::class, 'delete'])->name('mapel.delete');
+
+    //nilai
+    Route::get('/nilai', [NilaiController::class, 'index'])->name('nilai');
+    Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
+    Route::post('/nilai', [NilaiController::class, 'store'])->name('nilai.store');
+    Route::get('/nilai/{id}/edit', [NilaiController::class, 'edit'])->name('nilai.edit');
+    Route::put('/nilai/{id}', [NilaiController::class, 'update'])->name('nilai.update');
+    Route::delete('/nilai/{id}', [NilaiController::class, 'delete'])->name('nilai.delete');
+
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
