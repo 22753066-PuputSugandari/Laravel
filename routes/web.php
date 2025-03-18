@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SearchController;
@@ -60,7 +61,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/nilai/{id}', [NilaiController::class, 'update'])->name('nilai.update');
     Route::delete('/nilai/{id}', [NilaiController::class, 'delete'])->name('nilai.delete');
 
-
+    //pdf 
+    Route::get('/nilai/export-pdf', [PdfController::class, 'exportPdf'])->name('nilai.export-pdf');
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

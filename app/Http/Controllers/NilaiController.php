@@ -69,6 +69,16 @@ class NilaiController extends Controller
         return redirect()->route('nilai')->with('success', 'Nilai berhasil ditambahkan.');
     }
 
+    public function exportPDF()
+    {
+ 
+        $data = Nilai::with(['student', 'teacher', 'mapel'])->get();
+
+ 
+        $pdf = Pdf::loadView('backend.nilai.pdf', compact('data'));
+
+        return $pdf->download('Data_Nilai.pdf');
+    }
     public function edit($id)
     {
         $nilai = DB::table('nilai')->where('id', $id)->first();

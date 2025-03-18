@@ -28,37 +28,37 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-            <li class="nav-item {{ Request::is('dashboard*') ? 'active' : '' }} ">
+            <li class="nav-item {{ request()->is('dashboard*') ? 'active' : '' }} ">
             <a href="dashboard">
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-              <li class="nav-item {{ Request::is('user*') ? 'active' : '' }} ">
+              <li class="nav-item {{ request()->is('user*') ? 'active' : '' }} ">
                 <a href="{{ route('user')}}">
                   <i class="fas fa-users"></i>
                   <p>Data user</p>
                 </a>
               </li>
-              <li class="nav-item {{ Request::is('student*') ? 'active' : '' }} ">
+              <li class="nav-item {{ request()->is('student*') ? 'active' : '' }}">
                 <a href="{{ route('student')}}">
                   <i class="fas fa-user-graduate"></i>
                   <p>Data Siswa</p>
                 </a>
               </li>
-              <li class="nav-item {{ Request::is('teacher*') ? 'active' : '' }} ">
+              <li class="nav-item {{ request()->is('teacher*') ? 'active' : '' }} ">
                 <a href="{{ route('techer')}}">
                   <i class="fas fa-chalkboard-teacher"></i>
                   <p>Data Guru</p>
                 </a>
               </li>
-              <li class="nav-item {{ Request::is('mapels*') ? 'active' : '' }} ">
+              <li class="nav-item {{ request()->is('mapels*') ? 'active' : '' }} ">
                 <a href="{{ route('mapel')}}">
                   <i class="fas fa-book"></i>
                   <p>Mata Pelajaran</p>
                 </a>
               </li>
-              <li class="nav-item {{ Request::is('nilai*') ? 'active' : '' }} ">
+              <li class="nav-item {{ request()->is('nilai*') ? 'active' : '' }} ">
                 <a href="{{ route('nilai')}}">
                   <i class="fas fa-book"></i>
                   <p>Nilai</p>

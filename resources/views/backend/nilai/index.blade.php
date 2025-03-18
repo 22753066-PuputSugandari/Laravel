@@ -24,6 +24,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
+            <a href="{{ route('nilai.export-pdf') }}" class="btn btn-danger">Export PDF</a>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="card-title">Data Nilai</div>
                     <a href="{{ route('nilai.create') }}" class="btn btn-success">Tambah Nilai</a>
@@ -88,7 +89,34 @@
 <!-- SweetAlert untuk Notifikasi -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    // Tampilkan notifikasi sukses jika ada sesi
+    $(document).ready(function() {
+    let table = $('#nilai').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('nilai') }}",
+        dom: '<"top d-flex justify-content-between mb-3"lf>rt<"bottom"ip><"clear">',
+        columns: [
+            { 
+                data: null, 
+                name: 'no', 
+                render: function (data, type, row, meta) {
+                    return meta.row + 1; 
+                }
+            },
+            { data: 'student_name', name: 'student_name', defaultContent: '-' },
+            { data: 'teacher_name', name: 'teacher_name', defaultContent: '-' },
+            { data: 'mapel_name', name: 'mapel_name', defaultContent: '-' },
+            { data: 'nilai', name: 'nilai' },
+            { 
+                data: 'action', 
+                name: 'action', 
+                orderable: false, 
+                searchable: false 
+            }
+        ]
+    });
+
+    // SweetAlert untuk notifikasi sukses
     @if(session('success'))
         Swal.fire({
             icon: 'success',
@@ -100,27 +128,28 @@
     @endif
 
     // SweetAlert untuk konfirmasi hapus
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.delete-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                let form = this.closest('form');
-                Swal.fire({
-                    title: 'Apakah Anda yakin?',
-                    text: "Data yang dihapus tidak bisa dikembalikan!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Ya, Hapus!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
-                });
-            });
+    $(document).on('click', '.delete-btn', function(e) {
+        e.preventDefault(); 
+
+        let form = $(this).closest('form');
+
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); 
+            }
         });
     });
+});
+
 </script>
 
 @endsection

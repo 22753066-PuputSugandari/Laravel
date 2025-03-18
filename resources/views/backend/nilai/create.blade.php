@@ -18,14 +18,14 @@
                             <div class="form-group row">
                                 <label for="student_id" class="col-md-4 col-form-label text-md-right">Nama Siswa</label>
                                 <div class="col-md-6">
-                                    <select id="student_id" name="student_id" class="form-control">
+                                    <select id="student_id" name="student_id" class="form-control select2">
                                         <option value="">-- Pilih Siswa --</option>
                                         @foreach($students as $student)
                                             <option value="{{ $student->id }}">{{ $student->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('student_id')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -36,14 +36,14 @@
                             <div class="form-group row mt-3">
                                 <label for="techer_id" class="col-md-4 col-form-label text-md-right">Nama Guru</label>
                                 <div class="col-md-6">
-                                    <select id="techer_id" name="techer_id" class="form-control">
+                                    <select id="techer_id" name="techer_id" class="form-control select2">
                                         <option value="">-- Pilih Guru --</option>
                                         @foreach($teachers as $teacher)
                                             <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('teacher_id') {{-- Perbaikan error name --}}
-                                        <span class="invalid-feedback" role="alert">
+                                    @error('techer_id')
+                                        <span class="invalid-feedback d-block">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -54,14 +54,14 @@
                             <div class="form-group row mt-3">
                                 <label for="mapel_id" class="col-md-4 col-form-label text-md-right">Mata Pelajaran</label>
                                 <div class="col-md-6">
-                                    <select id="mapel_id" name="mapel_id" class="form-control">
+                                    <select id="mapel_id" name="mapel_id" class="form-control select2">
                                         <option value="">-- Pilih Mata Pelajaran --</option>
                                         @foreach($mapels as $mapel)
                                             <option value="{{ $mapel->id }}">{{ $mapel->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('mapel_id')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -76,7 +76,7 @@
                                         class="form-control @error('nilai') is-invalid @enderror"
                                         name="nilai" value="{{ old('nilai') }}" required>
                                     @error('nilai')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -99,4 +99,19 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection  
+
+@section('script')
+<!-- Select2 CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Pilih opsi",
+            allowClear: true
+        });
+    });
+</script>
+@endsectionz
