@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SearchController;
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ==================== Pendaftaran (Bisa Diakses Tanpa Login) ====================
+Route::get('/pendaftaran/create', [PendaftaranController::class, 'create'])->name('pendaftaran.create'); // Form Pendaftaran
+Route::post('/pendaftaran/store', [PendaftaranController::class, 'store'])->name('pendaftaran.store'); // Simpan Pendaftaran
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -63,6 +68,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //pdf 
     Route::get('/nilai/export-pdf', [PdfController::class, 'exportPdf'])->name('nilai.export-pdf');
+
+    // Pendaftaran (Admin)
+    Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran'); // Hanya Admin
+    Route::get('/pendaftaran/edit/{id}', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit');
+    Route::put('/pendaftaran/update/{id}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
+    Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'show'])->name('pendaftaran.show');
+    Route::put('/pendaftaran/{id}/updatestatus', [PendaftaranController::class, 'updateStatus'])->name('pendaftaran.updatestatus');
+    Route::delete('/pendaftaran/delete/{id}', [PendaftaranController::class, 'delete'])->name('pendaftaran.delete');
+    Route::get('/pendaftaran/export/pdf', [PendaftaranController::class, 'exportPDF'])->name('pendaftaran.export.pdf');
+    
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

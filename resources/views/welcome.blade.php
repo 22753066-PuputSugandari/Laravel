@@ -22,6 +22,7 @@
                     <label class="block text-gray-700" for="email">Email</label>
                     <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
                 </div>
+                
                 <div class="mb-4 text-left">
                     <label class="block text-gray-700" for="password">Password</label>
                     <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
@@ -36,11 +37,13 @@
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="w-5 h-5">
                     Login with Google
                 </a>
-                <a href="#" class="flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-100">
-                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="w-5 h-5">
-                    Login with GitHub
-                </a>
+            <div class="mt-4 text-gray-700">
+                Don't have an account? <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Register</a>
             </div>
+            <a href="{{ route('pendaftaran.create') }}"
+                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                Register Student
+            </a>
         </div>
     </body>
 </html>

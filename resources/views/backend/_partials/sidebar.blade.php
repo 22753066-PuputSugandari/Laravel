@@ -63,6 +63,11 @@
                   <i class="fas fa-book"></i>
                   <p>Nilai</p>
                 </a>
+                <li class="nav-item {{ request()->is('pendaftaran*') ? 'active' : '' }} ">
+                <a href="{{ route('pendaftaran')}}">
+                  <i class="fas fa-book"></i>
+                  <p>Pendaftaran</p>
+                </a>
               </li>
               <li class="nav-item">
               <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
